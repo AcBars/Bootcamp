@@ -22,7 +22,14 @@ string path = @"C:\Users\mihaylovav\Documents\soft.dev\homework\Bootcamp\task_00
 
 
 string[] readText = File.ReadAllLines(path);
-foreach (string s in readText)
-    {
-        Console.WriteLine(s);
-    }
+int n=Convert.ToInt32(readText[0]);
+int k=Convert.ToInt32(readText[2]);
+string [] array = readText[1].Split(' ', StringSplitOptions.RemoveEmptyEntries);
+string [] new_array=new string[n];
+for(int i=0; i<n; i++)
+{
+    new_array[i]=k>i? array[i+n-k]: array[i-k];
+}
+WriteLine($"[{String.Join(", ", array)}]");
+WriteLine("--------------------");
+WriteLine($"[{String.Join(", ", new_array)}]");
