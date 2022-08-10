@@ -17,3 +17,12 @@ using static System.Console;
 using System.IO;
 
 Clear();
+
+string path = @"C:\Users\mihaylovav\Documents\soft.dev\homework\Bootcamp\task_001\INPUT.txt";
+
+
+string[] readText = File.ReadAllLines(path);
+foreach (string s in readText)
+    {
+        Console.WriteLine(s);
+    }
