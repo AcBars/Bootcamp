@@ -29,6 +29,8 @@ string [] new_array=new string[n];
 for(int i=0; i<n; i++)
 {
     new_array[i]=k>i? array[i+n-k]: array[i-k];
+    //if(k>i & k<n) new_array[i]=array[i+n-k];
+    //else if(k<i & Math.Abs(k)<n) new_array[i]=array[i-k];
 }
 WriteLine($"[{String.Join(", ", array)}]");
 WriteLine("--------------------");
