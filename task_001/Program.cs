@@ -26,11 +26,12 @@ int n=Convert.ToInt32(readText[0]);
 int k=Convert.ToInt32(readText[2]);
 string [] array = readText[1].Split(' ', StringSplitOptions.RemoveEmptyEntries);
 string [] new_array=new string[n];
+if(Math.Abs(k)>n) k=k%n;
 for(int i=0; i<n; i++)
 {
-    new_array[i]=k>i? array[i+n-k]: array[i-k];
-    //if(k>i & k<n) new_array[i]=array[i+n-k];
-    //else if(k<i & Math.Abs(k)<n) new_array[i]=array[i-k];
+    if(i-k<0) new_array[i]=array[i+n-k];
+    else  if(i+k>n || i-k<n) new_array[i]=array[i-k];
+    else new_array[i]=array[i-n-k];
 }
 WriteLine($"[{String.Join(", ", array)}]");
 WriteLine("--------------------");
