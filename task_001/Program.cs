@@ -18,10 +18,11 @@ using System.IO;
 
 Clear();
 
-string path = @"C:\Users\mihaylovav\Documents\soft.dev\homework\Bootcamp\task_001\INPUT.txt";
+string path_in = @"C:\Users\mihaylovav\Documents\soft.dev\homework\Bootcamp\task_001\INPUT.txt";
+string path_out = @"C:\Users\mihaylovav\Documents\soft.dev\homework\Bootcamp\task_001\OUTPUT.txt";
 
 
-string[] readText = File.ReadAllLines(path);
+string[] readText = File.ReadAllLines(path_in);
 int n=Convert.ToInt32(readText[0]);
 int k=Convert.ToInt32(readText[2]);
 string [] array = readText[1].Split(' ', StringSplitOptions.RemoveEmptyEntries);
@@ -36,3 +37,6 @@ for(int i=0; i<n; i++)
 WriteLine($"[{String.Join(", ", array)}]");
 WriteLine("--------------------");
 WriteLine($"[{String.Join(", ", new_array)}]");
+
+ string createText = String.Join(' ', new_array);
+ File.WriteAllText(path_out, createText);
