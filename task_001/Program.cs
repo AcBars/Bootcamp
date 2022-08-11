@@ -18,7 +18,8 @@ using System.IO;
 
 Clear();
 
-string path_in = @"C:\Users\mihaylovav\Documents\soft.dev\homework\Bootcamp\task_001\INPUT.txt";
+string path_in= @"C:\Users\mihaylovav\Documents\soft.dev\homework\Bootcamp\task_001\INPUT.txt";
+GetTask(path_in);
 string path_out = @"C:\Users\mihaylovav\Documents\soft.dev\homework\Bootcamp\task_001\OUTPUT.txt";
 
 
@@ -40,3 +41,21 @@ WriteLine($"[{String.Join(", ", new_array)}]");
 
  string createText = String.Join(' ', new_array);
  File.WriteAllText(path_out, createText);
+
+ void GetTask(string adres)
+ {
+    string path_in = adres;
+    string [] task=new string [3];
+    task [0]=Convert.ToString(new Random().Next(1,106));
+    task [2]=Convert.ToString(new Random().Next(-105,106));
+    int [] array=new int[Convert.ToInt32(task[2])];
+    for(int i=0; i<array.Length; i++)
+    {
+        array[i]=new Random().Next(-100,101);
+    }
+    task[1]=String.Join(' ', array);
+    string task_text=String.Join('\v', task);
+    string appendText = "This is extra text" + Environment.NewLine;
+    File.AppendAllText(path_in, appendText);
+    WriteLine(String.Join(' ', task));
+ }
